@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Tra Cứu Vi Phạm Giao Thông</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #e6f0fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #0056b3;
+        }
+        .navbar-brand img {
+            height: 40px;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 15px; /* Thêm padding để căn chỉnh */
+        }
+        .navbar-nav .nav-link:hover {
+            color: #d1e8ff !important;
+            transform: scale(1.1);
+        }
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #d1e8ff;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+        /* Làm nổi bật mục Trang chủ */
+        .navbar-nav .nav-link.active {
+            background-color: #d1e8ff;
+            color: #0056b3 !important;
+            border-radius: 5px;
+        }
+        .banner {
+            background: linear-gradient(90deg, #0056b3, #00aaff);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+        .banner h1 {
+            font-weight: bold;
+        }
+        .btn-lookup {
+            background: linear-gradient(90deg, #ffffff, #d1e8ff);
+            color: #0056b3;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-lookup:hover {
+            background: linear-gradient(90deg, #d1e8ff, #ffffff);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.4);
+        }
+        .news-section, .traffic-section, .faq-section {
+            margin-bottom: 40px;
+        }
+        .news-section .card, .traffic-section .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 100%; /* Đảm bảo chiều cao đồng đều */
+        }
+        .news-section .card:hover, .traffic-section .card:hover {
+            transform: translateY(-5px);
+        }
+        .news-section .card-img-top {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-section .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 200px; /* Chiều cao cố định cho nội dung */
+        }
+        .news-section .card-text {
+            flex-grow: 1;
+            margin-bottom: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Giới hạn 3 dòng */
+            -webkit-box-orient: vertical;
+        }
+        .btn-detail {
+            background: linear-gradient(90deg, #0056b3, #00aaff);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: bold;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-detail:hover {
+            background: linear-gradient(90deg, #004494, #0088cc);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.4);
+        }
+        .traffic-section .list-group-item {
+            border: none;
+            padding: 15px;
+        }
+        .faq-section .accordion-button {
+            background-color: #0056b3;
+            color: white;
+            border-radius: 8px;
+        }
+        .faq-section .accordion-button:not(.collapsed) {
+            background-color: #004494;
+        }
+        .faq-section .accordion-body {
+            background-color: white;
+            border-radius: 8px;
+        }
+        .footer {
+            color: #0056b3;
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <img src="/assets/img/dcsvn.jpg" alt="Traffic Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hướng dẫn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <div class="container">
+        <div class="banner">
+            <h1>TRA CỨU VI PHẠM GIAO THÔNG NHANH CHÓNG</h1>
+            <p>Kiểm tra thông tin vi phạm giao thông của phương tiện chỉ với vài bước đơn giản.</p>
+            <a href="index.html" class="btn btn-lookup">Tra cứu ngay</a>
+        </div>
+
+        <!-- News Section -->
+        <div class="news-section">
+            <h2 class="text-center mb-4" style="color: #0056b3;">Tin Tức Giao Thông</h2>
+            <div class="row">
+                <!-- Bài viết 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/tải xuống.jpg" class="card-img-top" alt="Tin tức 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Tai nạn giao thông tại Hà Nội</h5>
+                            <p class="card-text">Một vụ tai nạn nghiêm trọng xảy ra vào sáng ngày 21/04/2025 tại ngã tư Kim Mã, khiến 3 người bị thương.</p>
+                            <a href="#" class="btn btn-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/tải xuống (2).jpg" class="card-img-top" alt="Tin tức 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Tăng cường kiểm tra nồng độ cồn</h5>
+                            <p class="card-text">Cảnh sát giao thông TP.HCM triển khai chiến dịch kiểm tra nồng độ cồn từ ngày 22/04/2025.</p>
+                            <a href="#" class="btn btn-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/images (1).jpg" class="card-img-top" alt="Tin tức 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Cấm xe tải giờ cao điểm</h5>
+                            <p class="card-text">TP. Đà Nẵng áp dụng lệnh cấm xe tải vào giờ cao điểm để giảm ùn tắc từ ngày 23/04/2025.</p>
+                            <a href="#" class="btn btn-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/images.jpg" class="card-img-top" alt="Tin tức 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Mở rộng tuyến metro tại TP.HCM</h5>
+                            <p class="card-text">Dự án metro số 2 tại TP.HCM bắt đầu mở rộng từ ngày 24/04/2025, dự kiến hoàn thành vào năm 2027.</p>
+                            <a href="#" class="btn btn-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/tải xuống (2).jpg" class="card-img-top" alt="Tin tức 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Tăng phí gửi xe tại Hà Nội</h5>
+                            <p class="card-text">Từ ngày 25/04/2025, phí gửi xe tại các bãi đỗ công cộng ở Hà Nội tăng 10% để hỗ trợ quản lý giao thông.</p>
+                            <a href="#" class="btn btn-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/images (3).jpg" class="card-img-top" alt="Tin tức 6">
+                        <div class="card-body">
+                            <h5 class="card-title">Xây cầu vượt tại Nha Trang</h5>
+                            <p class="card-text">Một cây cầu vượt mới sẽ được xây tại Nha Trang để giảm ùn tắc, khởi công ngày 26/04/2025.</p>
+                            <a href="#" class="btn btn-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 7 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/images.jpg" class="card-img-top" alt="Tin tức 7">
+                        <div class="card-body">
+                            <h5 class="card-title">Kiểm tra tải trọng xe tại Hải Phòng</h5>
+                            <p class="card-text">Cảnh sát giao thông Hải Phòng tăng cường kiểm tra tải trọng xe từ ngày 27/04/2025 để đảm bảo an toàn.</p>
+                            <a href="#" class="btn btn-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 8 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/tải xuống (2).jpg" class="card-img-top" alt="Tin tức 8">
+                        <div class="card-body">
+                            <h5 class="card-title">Lắp camera giao thông tại Đà Lạt</h5>
+                            <p class="card-text">Đà Lạt triển khai lắp đặt camera giao thông tại các ngã tư lớn từ ngày 28/04/2025.</p>
+                            <a href="#" class="btn btn-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 9 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/tải xuống (1).jpg" class="card-img-top" alt="Tin tức 9">
+                        <div class="card-body">
+                            <h5 class="card-title">Cải tạo đường cao tốc Bắc - Nam</h5>
+                            <p class="card-text">Dự án cải atạo đường cao tốc Bắc - Nam bắt đầu từ ngày 29/04/2025, dự kiến hoàn thành trong 2 năm.</p>
+                            <a href="#" class="btn btn-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Traffic Situation Section -->
+        <div class="traffic-section">
+            <h2 class="text-center mb-4" style="color: #0056b3;">Tình Hình Giao Thông</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <strong>Đường Nguyễn Trãi, Hà Nội:</strong> Ùn tắc nghiêm trọng do tai nạn lúc 7:00 sáng.
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Cầu Sài Gòn, TP.HCM:</strong> Giao thông thông thoáng, không có sự cố.
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Đường Hùng Vương, Đà Nẵng:</strong> Tắc nghẽn nhẹ do công trình sửa đường.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 class="text-center mb-4" style="color: #0056b3;">Câu Hỏi Thường Gặp (FAQ)</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                    Làm thế nào để tra cứu vi phạm giao thông?
+                                </button>
+                            </h2>
+                            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Bạn chỉ cần nhập biển số xe vào ô tra cứu trên trang web, sau đó nhấn nút "Tra cứu". Hệ thống sẽ hiển thị thông tin vi phạm (nếu có) của phương tiện.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    Tôi có thể tra cứu vi phạm của xe không phải của mình không?
+                                </button>
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Bạn có thể tra cứu vi phạm của bất kỳ phương tiện nào, miễn là bạn có thông tin biển số xe. Tuy nhiên, thông tin chi tiết như chủ phương tiện sẽ được bảo mật theo quy định.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    Làm sao để nộp phạt vi phạm giao thông?
+                                </button>
+                            </h2>
+                            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sau khi tra cứu, bạn sẽ nhận được thông tin về vi phạm và mức phạt. Bạn có thể nộp phạt trực tiếp tại cơ quan giao thông hoặc qua các cổng thanh toán trực tuyến được liên kết.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                    Dữ liệu vi phạm có được cập nhật thường xuyên không?
+                                </button>
+                            </h2>
+                            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Có, dữ liệu vi phạm được cập nhật hàng ngày từ hệ thống camera giao thông và báo cáo của cảnh sát giao thông trên toàn quốc.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 - Hệ thống tra cứu vi phạm giao thông. All rights reserved.</p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
